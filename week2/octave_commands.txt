@@ -1,0 +1,194 @@
+% is used for comments
+~= is !=
+
+disp(a), where a is a variable. Used for displaying it
+
+disp(sprintf('Hello world%d',a))
+
+format long % It's going to show float variables with more decimal places from
+%now on in the command prmpt
+
+format short % similar but kinda opposite to format long
+
+a = [1 3; 5 7; 8 9;]% matrix
+
+v = 1:0.1:2 % row vector containing 1 1.1 1.2 .... 2.0
+
+v = 1:6 % row vector containing  1 2 3 .. 6
+
+ones(2,3) % generates 2 by 3 matrix with all 1s
+
+b = 2*a% scalar mult
+
+zeros(2,3)
+
+w = rand(3,3)%matrix elts have random values between 0 and 1
+
+w = randn(3,3)%rand elts from Gaussian dist
+
+w = -6 + sqrt(10)*randn(1,10000)
+
+hist(w)
+
+hist(w,50) % shows 50 cols
+
+w = eye(4)% identity matrix
+
+size(A)% gives a 1 by 2 matrix with the dimensions of the matrix
+
+size(A,1)% first dimension
+size(A,2)% second dimension
+
+length(v)%length of vector
+
+load featureX.dat % loads the data in the data file into octave
+load('featureX.dat')%same thing as above
+
+who% shows the local variables in Octave, you can use this to check
+if the data is loaded properly
+
+whos % more detailed
+
+clear featureX% removes that variable from Octave
+
+v = priceY(1:10)% v = first ten elts of vector priceY
+
+save hello.mat v; % saves the variable v into the file hello.mat in binary
+
+clear % removes all variable
+
+save hello.mat v -ascii; % in human readable format
+
+a(2,:)% gives 2nd row
+
+a(:,3)%gives 3rd col
+
+a([1 3],:)% all cols in the 1st and 3rd row
+
+a(:,2)=[3;3;3;]% assign 3,3,3 to 2nd col of a
+
+a = [a, [3;4;5]]%append a col to a
+
+a(:)% put all elts of a into a single col vector
+
+c = [a b]% c is the concat of matrices a and b
+
+a .* b% element wise multiplication of 2 matrices
+
+a . ^2 % element wise squaring of the elements in a
+
+1 ./ v % element wise reciprocal
+
+log(v) % gives the log of all elts in vector v
+
+exp(v) % gives the exponent of all elts in vector v
+
+abs(v) % absolute value
+
+-v % -1*v
+
+v+1% add 1 to each elt of v
+
+a = [some numbers]
+
+max(a) % gives the max num.
+[val, ind] = max(a) % ind contains index of max ellt
+
+max(A) %col wise max
+
+a<3% gives 1s and 0s based on the elt wise comparision
+
+find(a<3)% gives the values of the elts
+
+magic(3)%all rows , cols , diags sum up to the same value
+
+[r,c] = find(A>=7)% r and c contain row and col indexes to the elts that
+satisfy the >= condt.
+
+sum(a)%sums up the elts
+
+prod(A)%multiplies the elts
+
+floor(a)
+
+ceil(a)
+
+max(a,b)% produces matrix with elts = elt wise max of elts in a and b
+
+max(A,[],1)%col wise max of matrix
+
+max(A,[],2)%row wise max of matrix
+
+plot(x,y)
+hold on
+plot(x1,y1,'r')
+
+xlabel('the x label')
+ylabel('the y label')
+legend('sine','cosinewhatever')
+title('my plot')
+
+print -dpng 'myPlot.png'
+
+close% closes the plot window
+
+figure1; plot(x,y)
+figure2; plot(x2,y2)
+
+subplot(1,2,1)% divide the plot area into 2 parts(This is what the first
+two params say i.e 1/2 tea ) and choose the first divided part(3rd param says this)
+
+axis([startX endX startY endY])
+
+clf;% clears a figure
+
+imagesc(A)%colored plot of a matrix
+
+for i=1:10,
+   v(i) = 2^i;
+end;
+
+indices = 1:10
+
+for i = indices,
+  disp(i);
+end;
+
+i = 1;
+while i <=5,
+   v(i) = 100;
+   i = i+1;
+end
+
+
+i = 1;
+
+while true,
+  v(i) = 99;
+  i = i + 1;
+  if i == 6,
+    break;
+  end;
+end;
+
+
+if i == 1,
+  disp('Value of i is 1');
+elseif i == 2,
+  disp('sdfsd');
+else,
+  disp('asdfsdf');
+end;
+
+
+function y = squareThisNumber(x)
+
+y = x^2;
+
+squareThisNumber(5);
+
+
+function [y1,y2] = sqrAndCube(x)
+
+y1 = x ^ 2;
+y2 = x ^ 3;
